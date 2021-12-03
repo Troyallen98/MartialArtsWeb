@@ -14,7 +14,9 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+   
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+   
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -39,5 +41,28 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyDdnZeDuzcRoPXf9PxGs8Vc0V2a8lUiKYA",
+          authDomain: "martialartsorigins.firebaseapp.com",
+          projectId: "martialartsorigins",
+          storageBucket: "martialartsorigins.appspot.com",
+          messagingSenderId: "183615451129",
+          appId: "1:183615451129:web:86d8fdfb3d16a3c32d9728",
+          measurementId: "G-PRZMNNY1ST"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
   </body>
 </html>

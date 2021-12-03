@@ -1,57 +1,95 @@
 import React from 'react'
-import { Container, Navbar, Button,} from 'react-bootstrap';
-
+import { Container, Navbar, Button, } from 'react-bootstrap'
+import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 export default function MainNavbar({
     token,
-    // offcanvas props
-    // showOffCanvas,
-    // handleCloseOffCanvas,
     handleShowOffCanvas,
+    handleShowModal,
+    removeToken,
+}) {
+    const baseURL = 'https://laravel-troywagonera734279.codeanyapp.com/';
+    const signOut = (event) => {
 
-    // modal props  
-    // showModal,
-    // handleCloseModal,
-    handleShowModal
- }) 
- {
+        event.preventDefault()
+
+        axios({
+            method: 'get',
+            url: baseURL + 'api/v1/user/logout',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+                'Access-Control-Allow-Credentials': true,
+                'Authorization': 'Bearer ' + token
+            },
+
+        })
+            .then(function (response) {
+                console.log(response);
+                removeToken()
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+    console.log(typeof token, token)
+
     return (
-        <Navbar className='bg-dark'>
+        <Navbar className='bg-dark' onSubmit={signOut}>
             <Container>
-                <Navbar.Brand 
-                    className='text-white' 
-                    href="#home"
-                    onClick={handleShowOffCanvas}>
+                <Navbar.Brand
+                    className='text-white'
+                    onClick={handleShowOffCanvas}
+                >
                     Martial Arts Library
                 </Navbar.Brand>
+
                 <Navbar.Toggle />
-                
-                <Navbar.Collapse 
-                    className="justify-content-end">
-                   {token.length > 0 ?
+
+                <Navbar.Collapse className="justify-content-end">
+                    {token.length > 0 ?
                         <>
-                            <Button 
-                                className="me-3" 
-                                variant="outline-success">
+                            <Button
+                                className="me-3"
+                                variant="outline-success"
+                            >
                                 Upload Video
                             </Button>
-                            <Button 
-                                variant="outline-danger">
+                            <Button
+                                variant="outline-danger"
+                                onClick={removeToken}
+                            >
                                 Log Out
                             </Button>
+                            <Link 
+                                to="/profile"
+                                className='ms-3'
+                                >
+                                    Profile
+                            </Link>
+                            
                         </>
                         :
                         <>
-                            <Button 
+                            <Button
                                 variant="outline-success"
                                 onClick={handleShowModal}
-                                >
+                            >
                                 Sign-In
                             </Button>
                         </>
                     }
-               </Navbar.Collapse>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     )
 }
+//(Ian)
+//Do i have to use 'useContext' to lift state since Modal is a child of Navbar. 
+//I dont Need a handleChange since information is changing but Do I need the information from the Login State?
+//or Should create a Logout state? possibly add a boolean to the Login state and change to false for Logout
+

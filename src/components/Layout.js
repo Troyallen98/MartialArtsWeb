@@ -1,10 +1,11 @@
-import React,{ useState } from 'react'
+import React, { useState } from 'react'
 import OffCanvas from './OffCanvas';
 import Navbar from './Navbar'
 import Modal from './Modal'
-import {Outlet} from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 
-export default function Layout({token, saveToken}) {
+export default function Layout({ token, saveToken, removeToken }) {
 
     // for the offcanvas
     const [showOffCanvas, setShowOffCanvas] = useState(false);
@@ -23,26 +24,29 @@ export default function Layout({token, saveToken}) {
 
     return (
         <>
-            <Navbar 
-                handleShowOffCanvas={handleShowOffCanvas} 
-                handleShowModal={handleShowModal} 
-                token={token}  
+            <Navbar
+                handleShowOffCanvas={handleShowOffCanvas}
+                handleShowModal={handleShowModal}
+                token={token}
+                removeToken={removeToken}
             />
-            <OffCanvas 
+            <OffCanvas
                 show={showOffCanvas}
-                handleClose={handleCloseOffCanvas} 
+                handleClose={handleCloseOffCanvas}
             />
-            <Modal 
-                show={showModal} 
-                handleClose={handleCloseModal} 
-                saveToken={saveToken} 
-                isRegistered={isRegistered} 
+            <Modal
+                show={showModal}
+                handleClose={handleCloseModal}
+                saveToken={saveToken}
+                isRegistered={isRegistered}
                 toggleModal={toggleModal}
             />
             {/* An <Outlet> renders whatever child route is currently active,
             so you can think about this <Outlet> as a placeholder for
             the child routes we defined above. */}
-            <Outlet />
+            <Container>
+                <Outlet />
+            </Container>
         </>
     );
 }
