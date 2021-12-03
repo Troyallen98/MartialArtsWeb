@@ -17,8 +17,9 @@ export default function Layout({token, saveToken}) {
     const handleShowModal = () => setShowModal(true);
 
     const [isRegistered, setIsRegistered] = useState(true)
-    const showRegister = () => setIsRegistered(false);
-    const showLogin = () => setIsRegistered(true);
+    const toggleModal = () => setIsRegistered(!isRegistered);
+    // const showRegister = () => setIsRegistered(false);
+    // const showLogin = () => setIsRegistered(true);
 
     return (
         <>
@@ -36,8 +37,7 @@ export default function Layout({token, saveToken}) {
                 handleClose={handleCloseModal} 
                 saveToken={saveToken} 
                 isRegistered={isRegistered} 
-                showRegister={showRegister}
-                showLogin={showLogin}
+                toggleModal={toggleModal}
             />
             {/* An <Outlet> renders whatever child route is currently active,
             so you can think about this <Outlet> as a placeholder for

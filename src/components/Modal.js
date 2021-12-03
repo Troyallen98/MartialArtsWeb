@@ -5,12 +5,12 @@ import axios from 'axios'
 
 // import Login from './Login'
 
-export default function LoginModal({show, handleClose, saveToken, isRegistered, showLogin, showRegister}) {
+export default function LoginModal({show, handleClose, saveToken, isRegistered, toggleModal}) {
 
     const baseURL = 'https://laravel-troywagonera734279.codeanyapp.com/';
 
     const [login, setLogin] = useState({})
-    const [Register, setRegister] = useState({})
+    const [register, setRegister] = useState({})
     
     
     const handleChangeLogin = e => {
@@ -21,7 +21,6 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
             }
         })
     }
-
     const handleChangeRegister = e => {
         setRegister(prevRegister => {
             return {
@@ -31,8 +30,6 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
         })
     }
 
-    
-    
     const signIn = (event) => {
 
         event.preventDefault()
@@ -76,9 +73,9 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
             method: 'post',
             url: baseURL + 'api/register',
             data: {
-                name: Register.name,
-                email: Register.email,
-                password: Register.password
+                name: register.name,
+                email: register.email,
+                password: register.password
             },
 
             header: {
@@ -95,8 +92,7 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
         })
             .then(function (response, data) {
                 console.log(response);
-                // localStorage.setItem('token', JSON.stringify(response.data.client_secret));
-                //signIn()
+                // saveToken(response.data.data.access_token)
                 handleClose()
             })
             .catch(function (error) {
@@ -158,7 +154,7 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
                         </Button>
                         <Button 
                             variant="secondary"
-                            onClick={showRegister}
+                            onClick={toggleModal}
                             >
                                 Don't have an account?
                         </Button>
@@ -190,7 +186,7 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
                                 type="username"
                                 placeholder="name" 
                                 name='name'
-                                value={Register.name}
+                                value={register.name}
                                 onChange={handleChangeRegister}
                                 />
                         </Form.Group>
@@ -204,7 +200,7 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
                                 type="email"
                                 placeholder="Enter email"
                                 name='email'
-                                value={Register.email}
+                                value={register.email}
                                 onChange={handleChangeRegister}
                                 />
 
@@ -219,7 +215,7 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
                                 type="password"
                                 placeholder="Password"
                                 name='password'
-                                value={Register.password}
+                                value={register.password}
                                 onChange={handleChangeRegister}
                                 />
                         </Form.Group>
@@ -231,7 +227,7 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
                         </Button>
                         <Button 
                             variant="secondary"
-                            onClick={showLogin}
+                            onClick={toggleModal}
                             >
                                 Already Registered?
                         </Button>
@@ -241,13 +237,14 @@ export default function LoginModal({show, handleClose, saveToken, isRegistered, 
                             variant="success"
                             type="submit"
                             >
-                            Register
+                            register
                         </Button>
                     </Modal.Footer>
                 </Form>
             </>
         }
     </Modal>
+       
+  )}
 
-  );
-}
+//ask Ian About Sign in button when a user is created.                                                                                                                                                                                                                               
