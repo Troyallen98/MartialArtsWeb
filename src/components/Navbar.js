@@ -13,7 +13,8 @@ export default function MainNavbar({
     // showModal,
     // handleCloseModal,
     handleShowModal
- }) {
+ }) 
+ {
     return (
         <Navbar className='bg-dark'>
             <Container>

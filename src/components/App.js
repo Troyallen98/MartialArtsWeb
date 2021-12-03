@@ -9,6 +9,7 @@ function App() {
         window.localStorage.setItem('token', newToken);
         setToken(newToken);
     }
+    
 
     useEffect(() => {
         const lsToken = window.localStorage.getItem('token');
