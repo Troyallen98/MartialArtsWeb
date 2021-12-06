@@ -8,7 +8,6 @@ export default function VideoModal({show, handleClose, token}) {
     
     const [upload, setUpload] = useState({})
 
-
     const saveUpload = e => {
         setUpload(prevUpload => {
             return {

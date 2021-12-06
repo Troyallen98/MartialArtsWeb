@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Navbar, Button, } from 'react-bootstrap'
+import {Navbar, Button, } from 'react-bootstrap'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 
@@ -39,13 +39,12 @@ export default function MainNavbar({
     // console.log(typeof token, token)
 
     return (
-        <Navbar className='bg-dark' onSubmit={signOut}>
-            <Container>
+        <Navbar className='bg-dark ps-5 pe-5 mb-3' onSubmit={signOut} id='sticky-nav'>
                 <Navbar.Brand
                     className='text-white'
                     onClick={handleShowOffCanvas}
-                >
-                    Martial Arts Library
+                    >
+                        Martial Arts Library
                 </Navbar.Brand>
 
                 <Navbar.Toggle />
@@ -61,7 +60,7 @@ export default function MainNavbar({
                             </Button>
                             <Link 
                                 to="/profile"
-                                className='ms-3'
+                                className='ms-2'
                                 >
                                     Profile
                             </Link>
@@ -78,7 +77,7 @@ export default function MainNavbar({
                         </>
                     }
                 </Navbar.Collapse>
-            </Container>
+            
         </Navbar>
     )
 }
