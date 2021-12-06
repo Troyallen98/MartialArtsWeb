@@ -36,7 +36,7 @@ export default function MainNavbar({
                 console.log(error);
             });
     }
-    console.log(typeof token, token)
+    // console.log(typeof token, token)
 
     return (
         <Navbar className='bg-dark' onSubmit={signOut}>
@@ -53,12 +53,6 @@ export default function MainNavbar({
                 <Navbar.Collapse className="justify-content-end">
                     {token.length > 0 ?
                         <>
-                            <Button
-                                className="me-3"
-                                variant="outline-success"
-                            >
-                                Upload Video
-                            </Button>
                             <Button
                                 variant="outline-danger"
                                 onClick={removeToken}

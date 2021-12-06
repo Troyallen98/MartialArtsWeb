@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import Layout from './Layout.js'
+import Layout from './Layout'
 import UserProfile from '../pages/UserProfile'
-//import Home from '../pages/Home'
+//import OffCanvas from './OffCanvas'
+import Home from '../pages/Home'
 import {Routes, Route} from 'react-router-dom'
 
 function App() {
     const [token, setToken] = useState('')
-    
+
     const saveToken = (newToken) => {
         window.localStorage.setItem('token', newToken);
         setToken(newToken);
@@ -15,18 +16,25 @@ function App() {
         window.localStorage.removeItem('token');
         setToken('');
     }
-    
+
     useEffect(() => {
         const lsToken = window.localStorage.getItem('token');
-        console.log(lsToken)
+        // console.log(lsToken)
         if(lsToken){
             setToken(lsToken);
         }
     }, [])
+
     return (
         <Routes>
-            <Route path='/' element={<Layout token={token} saveToken={saveToken} removeToken={removeToken} />}>
-                {/* <Route index element={<Home />} /> */}
+            <Route path='/' element={<Layout 
+                            token={token} 
+                            saveToken={saveToken} 
+                            removeToken={removeToken}
+                             />}>
+                <Route index element={<Home />} />
+                <Route path="home" element={<Home/>} />
+                 
                 <Route path="profile" element={<UserProfile token={token} />} />
                 {/* <Route path="dashboard" element={<Dashboard />} /> */}
 

@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 import { Modal, Form, Button } from 'react-bootstrap';
 import axios from 'axios'
 
-// import Login from './Login'
-
 export default function LoginModal({ 
     show, 
     handleClose, 
@@ -13,12 +11,9 @@ export default function LoginModal({
     toggleModal, 
 }) 
     {
-
     const baseURL = 'https://laravel-troywagonera734279.codeanyapp.com/';
-
     const [login, setLogin] = useState({})
     const [register, setRegister] = useState({})
-
 
     const handleChangeLogin = e => {
         setLogin(prevLogin => {
@@ -37,9 +32,9 @@ export default function LoginModal({
         })
     }
 
-    const signIn = (event) => {
+    const signIn = e => {
 
-        event.preventDefault()
+        e.preventDefault()
 
         axios({
             method: 'post',
@@ -86,13 +81,12 @@ export default function LoginModal({
             },
 
             header: {
-                'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>',
-                'Content-Length': '<calculated when request is sent>',
-                'Host': '<calculated when request is sent>',
-                'User-Agent': 'PostmanRuntime/7.28.4',
-                'Accept': '*/*',
-                'Accept-Encoding': 'gzip, deflate, br',
-                'Connection': 'keep-alive'
+               'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+                'Access-Control-Allow-Credentials': true,
             },
 
         })
@@ -167,6 +161,7 @@ export default function LoginModal({
                                 >
                                     Close
                             </Button>
+                            
                             <Button
                                 variant="secondary"
                                 onClick={toggleModal}
@@ -196,7 +191,6 @@ export default function LoginModal({
                                 className="mb-3"
                                 controlId="formBasicUsername"
                                 >
-
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control
                                     type="username"
@@ -211,7 +205,6 @@ export default function LoginModal({
                                 className="mb-3"
                                 controlId="formBasicEmail"
                                 >
-
                                 <Form.Label>Email address</Form.Label>
                                 <Form.Control
                                     type="email"
@@ -220,14 +213,12 @@ export default function LoginModal({
                                     value={register.email || ""}
                                     onChange={handleChangeRegister}
                                 />
-
                             </Form.Group>
 
                             <Form.Group
                                 className="mb-3"
                                 controlId="formBasicPassword"
                                 >
-
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control
                                     type="password"
@@ -268,4 +259,4 @@ export default function LoginModal({
     )
 }
 
-//ask Ian About Sign in button when a user is created.                                                                                                                                                                                                                               
+                                                                                                                                                                                                                            
