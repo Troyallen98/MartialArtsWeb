@@ -3,7 +3,7 @@ import {Row, Col, Card, Button, Nav, Image} from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
 import VideoModal from '../components/VideoModal';
 
-export default function UserProfile({ token }) {
+export default function UserProfile({ token, positions }) {
 
     const [uploadVideoModal, setUploadVideoModal] = useState(false);
     const handleCloseVideoModal = () => setUploadVideoModal(false);
@@ -53,6 +53,7 @@ export default function UserProfile({ token }) {
                 show={uploadVideoModal}
                 handleClose={handleCloseVideoModal}
                 token={token}
+                positions={positions}
                 />
         </>
         :

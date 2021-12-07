@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
 import axios from 'axios'
 
-export default function VideoModal({show, handleClose, token}) {
+export default function VideoModal({show, handleClose, token, positions}) {
 
     const baseURL = 'https://laravel-troywagonera734279.codeanyapp.com/';
     
@@ -23,9 +23,13 @@ export default function VideoModal({show, handleClose, token}) {
 
         axios({
             method: 'post',
-            url: baseURL + 'api/v1/video',
+            url: baseURL + 'api/v1/technique',
             data: {
-                video_url: upload.video_url
+                video_url: upload.video_url,
+                name: upload.name,
+                position : upload.position,
+                technique_id: 2
+                
             },
             headers: {
 
@@ -40,7 +44,7 @@ export default function VideoModal({show, handleClose, token}) {
         })
             .then(res => {
                 console.log(res);
-                // saveUpload(res.data.data.upload)
+                //saveUpload(res.data.upload)
                 handleClose()
                 setUpload({})
             })
@@ -74,15 +78,30 @@ export default function VideoModal({show, handleClose, token}) {
                             <Form.Select 
                                 aria-label="Floating label select example"
                                 onChange={saveUpload} 
+                                name='position'
                             >
+
                                 <option>select a position</option>
-                                <option value="1">Mount</option>
-                                <option value="2">Side Control</option>
-                                <option value="3">Back</option>
-                                <option value="4">Takedown</option>
-                                <option value="5">Drills</option>
+                                    {positions.map((position, index)=>{
+                                        console.log(position)
+                                        return (
+                                            <option key={index} value={position.id}>{position.name}</option>
+                                        )
+                                    })}
+                                
                             </Form.Select>
                         </FloatingLabel>
+
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Label>Technique</Form.Label>
+                            <Form.Control 
+                                
+                                placeholder="Enter technique name"
+                                name='name'
+                                value={upload.name || ''}
+                                onChange={saveUpload}  />
+                            
+                        </Form.Group>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button 

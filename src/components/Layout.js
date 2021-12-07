@@ -5,7 +5,7 @@ import Modal from './Modal'
 import { Outlet } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 
-export default function Layout({ token, saveToken, removeToken}) {
+export default function Layout({ token, saveToken, removeToken, positions}) {
 
     // for the offcanvas
     const [showOffCanvas, setShowOffCanvas] = useState(false);
@@ -36,6 +36,7 @@ export default function Layout({ token, saveToken, removeToken}) {
             <OffCanvas
                 show={showOffCanvas}
                 handleClose={handleCloseOffCanvas}
+                positions={positions}
                 />
             <Modal
                 show={showModal}

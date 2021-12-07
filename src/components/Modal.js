@@ -43,7 +43,7 @@ export default function LoginModal({
                 username: login.email,
                 password: login.password,
                 client_id: '2',
-                client_secret: 'YJjVDOPASMOact6YoSPYZOsVMyKei8WRxoN2ECSS',
+                client_secret: 'WmgS8M4ytCaSEAC0y7MSkhfGdY3njaWgJ6T9CiGA',
                 grant_type: 'password',
                 scope: ''
             },
@@ -73,7 +73,7 @@ export default function LoginModal({
 
         axios({
             method: 'post',
-            url: baseURL + 'api/register',
+            url: baseURL + 'api/v1/register',
             data: {
                 name: register.name,
                 email: register.email,

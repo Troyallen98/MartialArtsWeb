@@ -2,7 +2,7 @@ import React from 'react'
 import { Offcanvas, ListGroup, NavDropdown } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 
-export default function NavOffCanvas({show, handleClose}) {
+export default function NavOffCanvas({show, handleClose, positions}) {
     return (
          <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
@@ -17,12 +17,12 @@ export default function NavOffCanvas({show, handleClose}) {
                         title="Positions"
                         menuVariant="dark"
                         >
-                        <NavDropdown.Item href="#action/3.1">Mount</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Side Control</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Back</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Guard</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.5">Takedown</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.6">Drill</NavDropdown.Item>
+                        {positions.map((position, index)=>{
+                            console.log(position)
+                            return (
+                            <NavDropdown.Item key={index} as={Link} to={"/"}>{position.name}</NavDropdown.Item>
+                            )
+                        })}
                     </NavDropdown>
                     <ListGroup.Item></ListGroup.Item>
                 </ListGroup>

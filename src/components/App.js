@@ -4,9 +4,10 @@ import UserProfile from '../pages/UserProfile'
 //import OffCanvas from './OffCanvas'
 import Home from '../pages/Home'
 import {Routes, Route} from 'react-router-dom'
-
+import axios from 'axios'
 function App() {
     const [token, setToken] = useState('')
+    const [positions, setPositions] = useState([])
 
     const saveToken = (newToken) => {
         window.localStorage.setItem('token', newToken);
@@ -24,18 +25,27 @@ function App() {
             setToken(lsToken);
         }
     }, [])
+    useEffect(() => {
+       axios.get('https://Laravel-troywagonera734279.codeanyapp.com/api/v1/positions')
+       .then(r=>{
+           console.log(r)
+           setPositions(r.data)
+       })
+    }, [])
 
     return (
+        
         <Routes>
             <Route path='/' element={<Layout 
                             token={token} 
                             saveToken={saveToken} 
                             removeToken={removeToken}
+                            positions={positions}
                              />}>
                 <Route index element={<Home />} />
                 <Route path="home" element={<Home/>} />
                  
-                <Route path="profile" element={<UserProfile token={token} />} />
+                <Route path="profile" element={<UserProfile token={token} positions={positions} />} />
                 {/* <Route path="dashboard" element={<Dashboard />} /> */}
 
                 {/* Using path="*"" means "match anything", so this route
