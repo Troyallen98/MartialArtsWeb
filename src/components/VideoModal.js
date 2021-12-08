@@ -28,7 +28,7 @@ export default function VideoModal({show, handleClose, token, positions}) {
                 video_url: upload.video_url,
                 name: upload.name,
                 position : upload.position,
-                technique_id: 2
+                // technique_id: 2
                 
             },
             headers: {
@@ -102,7 +102,7 @@ export default function VideoModal({show, handleClose, token, positions}) {
                                 onChange={saveUpload}  />
                             
                         </Form.Group>
-                </Modal.Body>
+*/}             </Modal.Body>
                 <Modal.Footer>
                     <Button 
                         variant="secondary" 

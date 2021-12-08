@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import Layout from './Layout'
-import UserProfile from '../pages/UserProfile'
+import Layout from './components/Layout'
+import UserProfile from './pages/UserProfile'
 //import OffCanvas from './OffCanvas'
-import Home from '../pages/Home'
+import Home from './pages/Home'
+import Positions from './pages/Positions'
 import {Routes, Route} from 'react-router-dom'
 import axios from 'axios'
 function App() {
@@ -46,7 +47,7 @@ function App() {
                 <Route path="home" element={<Home/>} />
                  
                 <Route path="profile" element={<UserProfile token={token} positions={positions} />} />
-                {/* <Route path="dashboard" element={<Dashboard />} /> */}
+                <Route path="position/:position_name" element={<Positions />} />
 
                 {/* Using path="*"" means "match anything", so this route
                         acts like a catch-all for URLs that we don't have explicit

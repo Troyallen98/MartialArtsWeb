@@ -20,7 +20,7 @@ export default function NavOffCanvas({show, handleClose, positions}) {
                         {positions.map((position, index)=>{
                             console.log(position)
                             return (
-                            <NavDropdown.Item key={index} as={Link} to={"/"}>{position.name}</NavDropdown.Item>
+                            <NavDropdown.Item key={index} as={Link} to={`/position/${position.name.split(' ').join('-')}`}>{position.name}</NavDropdown.Item>
                             )
                         })}
                     </NavDropdown>

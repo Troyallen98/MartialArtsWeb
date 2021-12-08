@@ -1,5 +1,5 @@
 import React from 'react'
-import Techniques from './Techniques'
+import Techniques from '../components/Techniques'
 import {Container, Row} from 'react-bootstrap';
 
 export default function Home() {
