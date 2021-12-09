@@ -2,7 +2,11 @@ import React from 'react'
 import { Offcanvas, ListGroup, NavDropdown } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 
+
 export default function NavOffCanvas({show, handleClose, positions}) {
+
+    
+
     return (
          <Offcanvas show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
@@ -20,7 +24,10 @@ export default function NavOffCanvas({show, handleClose, positions}) {
                         {positions.map((position, index)=>{
                             console.log(position)
                             return (
-                            <NavDropdown.Item key={index} as={Link} to={`/position/${position.name.split(' ').join('-')}`}>{position.name}</NavDropdown.Item>
+                            <NavDropdown.Item 
+                                key={index} 
+                                as={Link} 
+                                to={`/position/${position.name.split(' ').join('-')}`}>{position.name}</NavDropdown.Item>
                             )
                         })}
                     </NavDropdown>

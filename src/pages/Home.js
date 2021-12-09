@@ -7,11 +7,7 @@ export default function Home() {
         
         <Container>
             <Row>
-                <Techniques/>
-                <Techniques/>
-                <Techniques/>
-                <Techniques/>
-                <Techniques/>
+            {/* random Videos from database. */}
                 <Techniques/>
             </Row>
         </Container>

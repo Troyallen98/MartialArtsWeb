@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import Layout from './components/Layout'
 import UserProfile from './pages/UserProfile'
-//import OffCanvas from './OffCanvas'
 import Home from './pages/Home'
+import Video from './pages/Video'
 import Positions from './pages/Positions'
 import {Routes, Route} from 'react-router-dom'
 import axios from 'axios'
+
 function App() {
     const [token, setToken] = useState('')
     const [positions, setPositions] = useState([])
@@ -48,6 +49,7 @@ function App() {
                  
                 <Route path="profile" element={<UserProfile token={token} positions={positions} />} />
                 <Route path="position/:position_name" element={<Positions />} />
+                <Route path="video" element={<Video/> }/>
 
                 {/* Using path="*"" means "match anything", so this route
                         acts like a catch-all for URLs that we don't have explicit

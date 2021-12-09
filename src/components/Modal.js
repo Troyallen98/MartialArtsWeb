@@ -43,7 +43,7 @@ export default function LoginModal({
                 username: login.email,
                 password: login.password,
                 client_id: '2',
-                client_secret: 'WmgS8M4ytCaSEAC0y7MSkhfGdY3njaWgJ6T9CiGA',
+                client_secret: 'ms53Ev5j0jmWPK8uANKUfgoeg3PUpIdZVsVZbBwb',
                 grant_type: 'password',
                 scope: ''
             },
@@ -108,7 +108,6 @@ export default function LoginModal({
             onHide={handleClose} 
             animation={false}
             >
-
             {isRegistered ?
                 <>
                     <Form onSubmit={signIn}>
