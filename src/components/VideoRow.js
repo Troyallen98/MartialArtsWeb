@@ -6,7 +6,7 @@ import {Row, Col} from 'react-bootstrap'
 
 export default function VideoRow({technique}) {
 
-    
+    console.log('loading video row:',{technique})
 
     return (
        
@@ -34,10 +34,8 @@ export default function VideoRow({technique}) {
                             {technique.user.name}
                         </div>
                         </Col>
-
                     </td>
-                 <Link to = {`/video/${technique.id}`} class="stretched-link">watch</Link>
-                        
+                  <Link to = {`/video/${technique.id}`} class="stretched-link">watch now</Link> 
                 </tr> 
              
      

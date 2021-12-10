@@ -74,7 +74,7 @@ export default function Video({technique, techniques}) {
                             {techniques
                             //filter list to show position
                             //slice list to have just 10
-                            .map((technique)=> <VideoRow technique={technique}/>)}
+                            .map((technique, index)=> <VideoRow key={index} technique={technique}/>)}
                             
                          </tbody>
                     </Table>

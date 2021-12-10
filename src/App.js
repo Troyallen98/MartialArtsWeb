@@ -32,7 +32,7 @@ function App() {
     useEffect(() => {
        axios.get(base_url+'positions')
        .then(r=>{
-           console.log(r)
+        //    console.log(r)
            setPositions(r.data)
        })
     }, [])
@@ -55,7 +55,7 @@ function App() {
                 }
             })
             .then(r => {
-                console.log(r.data);
+                // console.log(r.data);
                 setUser(r.data);
             })
             .catch(function (error) {
@@ -84,7 +84,7 @@ const [techniques, setTechniques] = useState([])
 
         })
             .then(function (response) {
-                console.log(response);
+                // console.log(response);
                 setTechniques(response.data)
             })
             .catch(function (error) {

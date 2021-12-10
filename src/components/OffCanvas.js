@@ -22,7 +22,7 @@ export default function NavOffCanvas({show, handleClose, positions}) {
                         menuVariant="dark"
                         >
                         {positions.map((position, index)=>{
-                            console.log(position)
+                            // console.log(position)
                             return (
                             <NavDropdown.Item 
                                 key={index} 
