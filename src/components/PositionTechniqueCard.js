@@ -3,16 +3,17 @@ import {Card, Image} from 'react-bootstrap'
 import ReactPlayer from 'react-player/youtube'
 import {Link} from 'react-router-dom'
 
-export default function TechniqueCard({technique}) {
 
-    
+
+export default function PositionsTechniqueCard({ technique, token}) {
+   
 
     return (
 
           <Card 
           border='light' className='col-12 col-md-6 col-lg-4 col-xl-3 text-center'>
             <ReactPlayer
-                url = {technique.video_url }
+                url = {technique.video_url}
                 controls = {true}
                 width='100%'
                 height='100%'

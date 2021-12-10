@@ -2,13 +2,12 @@ import React from 'react'
 import Techniques from '../components/Techniques'
 import {Container, Row} from 'react-bootstrap';
 
-export default function Home({token, techniques}) {
+export default function Home({techniques}) {
     return (
         
         <Container>
             <Row>
-            {/* random Videos from database. */}
-                <Techniques token = {token} techniques = {techniques}/>
+                <Techniques techniques = {techniques}/>
             </Row>
         </Container>
         

@@ -1,44 +1,31 @@
-import React from 'react'
-import {useParams} from 'react-router-dom'
-//import axios from 'axios'
-export default function Positions() {
-    const {position_name} = useParams()
+import React, { useEffect, setState } from 'react'
 
-// const baseURL = 'https://laravel-troywagonera734279.codeanyapp.com/';
-// const [viewPositionTechnique, setViewPositionTechnique] = useState([])
+import PositionTechniques from '../components/PositionTechnique'
+import { Container, Row } from 'react-bootstrap';
+import { useParams } from 'react-router-dom'
 
-//     useEffect(() => {
-//         axios({
-//             method: 'get',
-//             url: baseURL + 'api/v1/view-technique', // Do I have a route to do this? do i use position or technique route?
+export default function Positions({ token, techniques, positions }) {
 
-//                                                     //This may need to be on. my technique component.
-            
-//             headers: {
-//             "Accept": "application/json",
-//             "Content-Type": "application/json",
-//             "Access-Control-Allow-Origin": "*",
-//             "Access-Control-Allow-Headers": "Content-Type",
-//             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-//             "Access-Control-Allow-Credentials": true,
-//             //'Authorization' : `Bearer ${token}`
-//         },
+    // const [name, setName] = setState('')
 
-//         })
-//             .then(function (response) {
-//                 console.log(response);
-//                 setViewPositionTechnique(response.data)
-//             })
-//             .catch(function (error) {
-//                 console.log(error);
-//             });
-//     }, [])
+    // const params = useParams()
 
+    // useEffect(() => {
+    //     setName(params.name)
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [params])
 
     return (
-        <div>
-            {/*filtered videos from database. */}
-            welcome to the position page for this position: {position_name}
-        </div>
+
+        <Container>
+            <Row>
+                <PositionTechniques token={token} techniques={techniques} positions={positions} />
+            </Row>
+        </Container>
+        // <>
+        // this is the {name} postion 
+        // </>
+
     )
 }
+
