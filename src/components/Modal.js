@@ -43,7 +43,7 @@ export default function LoginModal({
                 username: login.email,
                 password: login.password,
                 client_id: '2',
-                client_secret: 'ms53Ev5j0jmWPK8uANKUfgoeg3PUpIdZVsVZbBwb',
+                client_secret: 'WM0C75VxnfCP22qCK4e8K4lK9shP6SRYQO7jBREj',
                 grant_type: 'password',
                 scope: ''
             },

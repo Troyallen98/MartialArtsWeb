@@ -28,6 +28,7 @@ export default function VideoModal({show, handleClose, token, positions}) {
                 video_url: upload.video_url,
                 name: upload.name,
                 position : upload.position,
+                //on clicked tech idtechnique_id: 2,
 
                 
             },
@@ -57,7 +58,7 @@ export default function VideoModal({show, handleClose, token, positions}) {
         <Modal show={show} onHide={handleClose} animation={false}>
             <Form  onSubmit={uploadVideo}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Upload a technique</Modal.Title>
+                    <Modal.Title>Upload a inverse technique</Modal.Title>
                 </Modal.Header>
                 
                 <Modal.Body>

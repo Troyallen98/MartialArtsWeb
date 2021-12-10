@@ -1,16 +1,25 @@
 import React from 'react'
 import ReactPlayer from 'react-player/youtube'
-import VideoColumn from '../components/VideoColumn'
+import VideoRow from '../components/VideoRow'
+import {useParams} from 'react-router-dom'
 
-import {Container, Row, Col, Image, Form, Card, Button, Table} from 'react-bootstrap';
-export default function Video() {
+
+import {Container, Row, Col, Image, Form, Card, Button, Table, } from 'react-bootstrap';
+export default function Video({technique, techniques}) {
+
+    const {id} = useParams()
+    const video = techniques.find(t => t.id === parseInt(id))
+    
+
+
     return (
+        <>
             <Row>
                 <Col lg={8}>
                     <Card style={{height: '90vh'}} >
                         
                         <ReactPlayer
-                        url = 'https://www.youtube.com/watch?v=ysz5S6PUM-U'//position.position_id.technique_id.techniques.video_url
+                        url = {video?.video_url}
                         controls = {true}
                         width='100%'
                         height='100%'
@@ -31,6 +40,7 @@ export default function Video() {
                                                 />
                                         </Form.Label>
                                         <Col sm="8">
+                                        {/* set up state and submit button to run axios call to post the comment data to the database */}
                                             <Form.Control size="md" type="text" placeholder="Comment" />
                                         </Col>
                                         <Col sm="3" >
@@ -60,14 +70,17 @@ export default function Video() {
                    
                 <Col lg={4}>
                     <Table striped borderless hover >
-                        <VideoColumn/>
-                        <VideoColumn/>
-                        <VideoColumn/>
-                        <VideoColumn/>
-                        <VideoColumn/>
+                         <tbody>
+                            {techniques
+                            //filter list to show position
+                            //slice list to have just 10
+                            .map((technique)=> <VideoRow technique={technique}/>)}
+                            
+                         </tbody>
                     </Table>
                 </Col>
             </Row>
-        
+            <inverseModal/>
+        </>
     )
 }

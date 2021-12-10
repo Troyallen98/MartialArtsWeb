@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactPlayer from 'react-player/youtube'
 import {Link} from 'react-router-dom'
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap'
 
-export default function VideoColumn() {
+
+export default function VideoRow({technique}) {
+
+    
+
     return (
-        <>
-            <tbody  >
+       
                 <tr>
                     <td
                         as={Row}
@@ -15,7 +18,7 @@ export default function VideoColumn() {
 
                         <Col sm={7}>
                         <ReactPlayer
-                            url = 'https://www.youtube.com/watch?v=ysz5S6PUM-U'//position.position_id.technique_id.techniques.video_url
+                            url = {technique.video_url}
                             controls = {true}
                             as = {Link}
                             to = {'/video'}
@@ -27,13 +30,16 @@ export default function VideoColumn() {
 
                         <Col sm={5}>
                         <div className="ms-2">
-                            <div className="fw-bold">Title</div>
-                            username
+                            <div className="fw-bold">{technique.name}</div>
+                            {technique.user.name}
                         </div>
                         </Col>
+
                     </td>
+                 <Link to = {`/video/${technique.id}`} class="stretched-link">watch</Link>
+                        
                 </tr> 
-            </tbody>
-        </>
+             
+     
     )
 }
