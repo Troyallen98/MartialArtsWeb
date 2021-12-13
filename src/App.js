@@ -82,7 +82,7 @@ function App() {
 
         })
             .then(function (response) {
-                console.log(response);
+              
                 setTechniques(response.data)
             })
             .catch(function (error) {

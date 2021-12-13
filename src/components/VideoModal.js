@@ -82,7 +82,7 @@ export default function VideoModal({ show, handleClose, token, positions }) {
 
               <option>select a position</option>
               {positions.map((position, index) => {
-                console.log(position)
+               
                 return (
                   <option key={index} value={position.id}>{position.name}</option>
                 )
@@ -92,7 +92,7 @@ export default function VideoModal({ show, handleClose, token, positions }) {
           </FloatingLabel>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Technique</Form.Label>
+            <Form.Label></Form.Label>
             <Form.Control
 
               placeholder="Enter technique name"
