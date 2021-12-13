@@ -36,7 +36,7 @@ export default function MainNavbar({
                 console.log(error);
             });
     }
-    // console.log(typeof token, token)
+    
 
     return (
         <Navbar className='bg-dark ps-5 pe-5 mb-3' onSubmit={signOut} id='sticky-nav'>

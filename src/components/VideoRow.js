@@ -5,10 +5,10 @@ import { Row, Col } from 'react-bootstrap'
 
 
 
-export default function VideoRow({ technique, token }) {
-  
+export default function VideoRow({ technique}) {
   
   const navigate = useNavigate()
+
   const next = () => {
     navigate(`/video/${technique.id}`)
   }

@@ -43,7 +43,7 @@ export default function LoginModal({
                 username: login.email,
                 password: login.password,
                 client_id: '2',
-                client_secret: 'WM0C75VxnfCP22qCK4e8K4lK9shP6SRYQO7jBREj',
+                client_secret: '75zSHMDX1kkL7O9McXYF1L3oSFaTd9FgjipoZNFz',
                 grant_type: 'password',
                 scope: ''
             },
@@ -80,7 +80,7 @@ export default function LoginModal({
                 password: register.password
             },
 
-            header: {
+            headers: {
                'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',

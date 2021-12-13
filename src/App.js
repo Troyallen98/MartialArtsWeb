@@ -32,7 +32,6 @@ function App() {
     useEffect(() => {
         axios.get(base_url + 'positions')
             .then(r => {
-                //    console.log(r)
                 setPositions(r.data)
             })
     }, [])
@@ -55,7 +54,6 @@ function App() {
                 }
             })
                 .then(r => {
-                    // console.log(r.data);
                     setUser(r.data);
                 })
                 .catch(function (error) {
@@ -67,7 +65,7 @@ function App() {
 
     const [techniques, setTechniques] = useState([])
 
-    useEffect(() => {
+    const getTechniques = () => {
         axios({
             method: 'get',
             url: base_url + 'view-technique',
@@ -90,7 +88,8 @@ function App() {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [])
+    }
+    useEffect(getTechniques, [])
 
 
 
@@ -110,9 +109,9 @@ function App() {
                 <Route index element={<Home token={token} techniques={techniques} />} />
                 <Route path="home" element={<Home token={token} techniques={techniques} />} />
 
-                <Route path="profile" element={<UserProfile token={token} positions={positions} />} />
+                <Route path="profile" element={<UserProfile token={token} positions={positions} getTechniques={getTechniques} />} />
                 <Route path="position/:name" element={<Positions token={token} techniques={techniques} positions={positions} />} />
-                <Route path="video/:id" element={<Video techniques={techniques} />} />
+                <Route path="video/:id" element={<Video techniques={techniques} getTechniques={getTechniques} token={token}/>} />
 
                 {/* Using path="*"" means "match anything", so this route
                         acts like a catch-all for URLs that we don't have explicit

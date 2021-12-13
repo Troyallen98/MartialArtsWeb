@@ -7,8 +7,6 @@ export default function PositionTechniques({ token, techniques, positions }) {
     const { name } = useParams()
     const parsedName = name.split('-').join(' ')
 
-    // console.log("in the file")
-    // const positionId = positions.find(p => p.name === parsedName).id
     return (
         techniques
         .filter(t => {

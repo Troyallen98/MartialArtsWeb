@@ -3,12 +3,13 @@ import {Row, Col, Card, Button, Nav, Image} from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
 import VideoModal from '../components/VideoModal';
 
-export default function UserProfile({ token, positions }) {
+
+export default function UserProfile({ token, positions}) {
 
     const [uploadVideoModal, setUploadVideoModal] = useState(false);
     const handleCloseVideoModal = () => setUploadVideoModal(false);
     const handleShowModal = () => setUploadVideoModal(true);  
-
+    
     return token.length > 0 ?
         <>
             <Row className='mb-5 mt-5 '>
@@ -18,21 +19,21 @@ export default function UserProfile({ token, positions }) {
                     </Col>
                 </Col>
                 <Col sm={9}>
-                    Name
+                    
                 </Col>
             </Row>
 
             <Card className='mb-5'>
                 <Card.Header>
-                    <Nav variant="tabs" defaultActiveKey="#first">
+                    <Nav variant="tabs" defaultActiveKey="#upload">
                         <Nav.Item>
-                            <Nav.Link href="#first">Upload Video</Nav.Link>
+                            <Nav.Link href="#upload">Upload Video</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#link">My Videos</Nav.Link>
+                            <Nav.Link href="#myvideos">My Videos</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#disabled">
+                            <Nav.Link href="#myplaylist">
                                 My Playlist
                                 </Nav.Link>
                         </Nav.Item>
@@ -48,6 +49,7 @@ export default function UserProfile({ token, positions }) {
                         </Card.Text>
                     <Button variant="primary" onClick={handleShowModal} > UPLOAD VIDEO</Button>
                 </Card.Body>
+
             </Card>
             <VideoModal 
                 show={uploadVideoModal}
