@@ -99,9 +99,12 @@ export default function Video({ techniques, token, getTechniques}) {
                         </Card.Body>
                         
                              
-                           {video?.comments.map((item, index) =><Card.Footer> <Comment data={item} key={index}/></Card.Footer>)} 
+                         
                                 
                         
+                    </Card>
+                    <Card>
+                         {video?.comments.map((item, index) =><Card.Footer> <Comment data={item} key={index}/></Card.Footer>)} 
                     </Card>
 
                 </Col>

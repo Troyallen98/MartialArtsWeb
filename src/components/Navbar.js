@@ -44,7 +44,7 @@ export default function MainNavbar({
                     className='text-white'
                     onClick={handleShowOffCanvas}
                     >
-                        Martial Arts Library
+                        Martial Arts Origin
                 </Navbar.Brand>
 
                 <Navbar.Toggle />

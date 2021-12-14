@@ -2,7 +2,7 @@ import React from 'react'
 import PositionTechniqueCard from './PositionTechniqueCard'
 import { useParams } from 'react-router-dom'
 
-export default function PositionTechniques({ token, techniques, positions }) {
+export default function PositionTechniques({ token, techniques }) {
 
     const { name } = useParams()
     const parsedName = name.split('-').join(' ')
@@ -10,7 +10,7 @@ export default function PositionTechniques({ token, techniques, positions }) {
     return (
         techniques
         .filter(t => {
-                //console.log({ t, parsedName })
+                console.log({ t, parsedName })
                 if (t.position_technique.position.name === parsedName) {
                     return true
                 }
